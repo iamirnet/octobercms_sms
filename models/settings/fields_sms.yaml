@@ -1,0 +1,20 @@
+fields:
+  base:
+    label: iamirnet.sms::lang.sms.description
+    type: section
+  kevenegar_api_token:
+    label: iamirnet.sms::lang.kavenegar.token
+    span: auto
+    type: text
+    tab: iamirnet.sms::lang.kavenegar.title
+  kevenegar_from_number:
+    label: iamirnet.sms::lang.kavenegar.from_number
+    span: auto
+    type: text
+    tab: iamirnet.sms::lang.kavenegar.title
+  kavenegar_footer:
+    label: iamirnet.sms::lang.kavenegar.footer
+    span: auto
+    type: text
+    tab: iamirnet.sms::lang.kavenegar.title
+

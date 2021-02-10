@@ -1,0 +1,7 @@
+<div id="partialUserVerifyMobileForm">
+    {% if __SELF__.code == null %}
+        {% partial __SELF__ ~ '::send' %}
+    {% else %}
+        {% partial __SELF__ ~ '::check' %}
+    {% endif %}
+</div>

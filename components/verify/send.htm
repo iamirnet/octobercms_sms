@@ -1,0 +1,17 @@
+<div class="col-md-8 m-auto mb-4">
+    <p class="lead">
+        <img src="{{ 'smartphone.png'|media }}" width="70" />
+        {{ 'iamirnet.sms::lang.components.verify.desc' | trans }}
+    </p>
+    <br />
+    <br />
+    <form
+          data-request="{{ __SELF__ }}::onSendCode"
+          data-request-update="'{{ __SELF__ }}::check': '#partialUserVerifyMobileForm'">
+        <div class="form-group">
+             <label for="userVerifyMobile">{{ 'iamirnet.sms::lang.sms.mobile' | trans }}</label>
+             <input style="text-align-last: center;" name="mobile" type="text" class="form-control" id="userVerifyMobile" placeholder="{{ 'iamirnet.sms::lang.sms.mobile_comment' | trans }}" value="{{ __SELF__.user.mobile }}">
+        </div>
+        <center><button type="submit" class="btn custom-primary-btn">{{ 'iamirnet.sms::lang.components.verify.btn.send' | trans }}</button></center>
+    </form>
+</div>
