@@ -4,12 +4,28 @@
 namespace iAmirNet\SMS\Classes;
 
 
-use Azarinweb\Minimall\Models\User;
-
 class Notifications
 {
-    public static function sendForOrder($order) {
-        $user = User::findOrFail($order->customer->user_id);
-        return Kavenegar::sendSMS("پرداخت شما به شماره فاکتور {$order->id} با موفقیت پرداخت شد.", $user->mobile);
+    public static function OrderPaid($order) {
+        $data = [
+            'order' => $order->id,
+        ];
+        return Sender::send('order_paid', $data, $order->customer->user_id);
+    }
+
+    public static function OrderSent($order) {
+        $data = [
+            'link' => $order->tracking_url,
+            'code' => $order->tracking_number,
+        ];
+        return Sender::send('order_sent', $data, $order->customer->user_id);
+    }
+
+    public static function VerifyCode($mobile, $code) {
+        return Sender::send('verify', ['code' => $code], $mobile, true);
+    }
+
+    public static function Welcome($mobile, $name = '') {
+        return Sender::send('verify', ['name' => $name], $mobile, true);
     }
 }

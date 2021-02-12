@@ -7,6 +7,14 @@ namespace Composer\Autoload;
 class ComposerStaticInitbda603b7fe1eb82088ace4866d920402
 {
     public static $prefixLengthsPsr4 = array (
+        'i' => 
+        array (
+            'iAmirNet\\SMS\\' => 13,
+        ),
+        'K' => 
+        array (
+            'Kavenegar\\' => 10,
+        ),
         'I' => 
         array (
             'IPPanel\\' => 8,
@@ -14,6 +22,14 @@ class ComposerStaticInitbda603b7fe1eb82088ace4866d920402
     );
 
     public static $prefixDirsPsr4 = array (
+        'iAmirNet\\SMS\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/iamirnet/sms/src',
+        ),
+        'Kavenegar\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kavenegar/php/src',
+        ),
         'IPPanel\\' => 
         array (
             0 => __DIR__ . '/..' . '/ippanel/php-rest-sdk/src/IPPanel',

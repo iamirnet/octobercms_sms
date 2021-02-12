@@ -1,0 +1,41 @@
+fields:
+  cuphost_api_token:
+    label: iamirnet.sms::lang.gateway.items.global.token
+    span: auto
+    type: text
+    tab: iamirnet.sms::lang.gateway.title
+  cuphost_from_number:
+    label: iamirnet.sms::lang.gateway.items.global.from_number
+    span: auto
+    type: text
+    tab: iamirnet.sms::lang.gateway.title
+  cuphost_from_number_pattern:
+    label: iamirnet.sms::lang.gateway.items.global.from_number_pattern
+    span: auto
+    type: text
+    tab: iamirnet.sms::lang.gateway.title
+  cuphost_pattern_welcome:
+    label: iamirnet.sms::lang.gateway.items.cuphost.patterns.welcome
+    span: auto
+    type: text
+    tab: iamirnet.sms::lang.gateway.title
+  cuphost_pattern_verify:
+    label: iamirnet.sms::lang.gateway.items.cuphost.patterns.verify
+    span: auto
+    type: text
+    tab: iamirnet.sms::lang.gateway.title
+  cuphost_pattern_order_paid:
+    label: iamirnet.sms::lang.gateway.items.cuphost.patterns.order.paid
+    span: auto
+    type: text
+    tab: iamirnet.sms::lang.gateway.title
+  cuphost_pattern_order_sent:
+    label: iamirnet.sms::lang.gateway.items.cuphost.patterns.order.sent
+    span: auto
+    type: text
+    tab: iamirnet.sms::lang.gateway.title
+  cuphost_footer:
+    label: iamirnet.sms::lang.gateway.items.global.footer
+    span: auto
+    type: text
+    tab: iamirnet.sms::lang.gateway.title

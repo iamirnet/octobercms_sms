@@ -2,19 +2,35 @@ fields:
   base:
     label: iamirnet.sms::lang.sms.description
     type: section
-  kevenegar_api_token:
-    label: iamirnet.sms::lang.kavenegar.token
+  sms_option_welcome:
+    label: iamirnet.sms::lang.options.welcome
     span: auto
-    type: text
-    tab: iamirnet.sms::lang.kavenegar.title
-  kevenegar_from_number:
-    label: iamirnet.sms::lang.kavenegar.from_number
+    type: dropdown
+    tab: iamirnet.sms::lang.sms.title
+    options:
+      active: iamirnet.sms::lang.sms.status.active
+      inactive: iamirnet.sms::lang.sms.status.inactive
+  sms_option_verify:
+    label: iamirnet.sms::lang.options.verify
     span: auto
-    type: text
-    tab: iamirnet.sms::lang.kavenegar.title
-  kavenegar_footer:
-    label: iamirnet.sms::lang.kavenegar.footer
+    type: dropdown
+    tab: iamirnet.sms::lang.sms.title
+    options:
+      active: iamirnet.sms::lang.sms.status.active
+      inactive: iamirnet.sms::lang.sms.status.inactive
+  sms_option_order_paid:
+    label: iamirnet.sms::lang.options.order.paid
     span: auto
-    type: text
-    tab: iamirnet.sms::lang.kavenegar.title
-
+    type: dropdown
+    tab: iamirnet.sms::lang.sms.title
+    options:
+      active: iamirnet.sms::lang.sms.status.active
+      inactive: iamirnet.sms::lang.sms.status.inactive
+  sms_option_order_sent:
+    label: iamirnet.sms::lang.options.order.sent
+    span: auto
+    type: dropdown
+    tab: iamirnet.sms::lang.sms.title
+    options:
+      active: iamirnet.sms::lang.sms.status.active
+      inactive: iamirnet.sms::lang.sms.status.inactive

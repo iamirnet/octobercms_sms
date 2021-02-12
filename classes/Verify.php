@@ -16,7 +16,7 @@ class Verify
 
     public function __construct($user)
     {
-        $this->sender = Kavenegar::class;
+        $this->sender = Sender::get('verify', true);
         if ($user){
             $this->user = $user;
             $this->verify = $user->mobile_verify_time;
@@ -98,6 +98,6 @@ class Verify
     }
 
     public function sendCode($mobile, $code) {
-        return $this->sender::sendSMS('کد تایید شما: '.$code,$mobile);
+        return Notifications::VerifyCode($mobile, $code);
     }
 }

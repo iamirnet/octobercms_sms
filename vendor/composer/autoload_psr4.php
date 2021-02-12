@@ -6,5 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'iAmirNet\\SMS\\' => array($vendorDir . '/iamirnet/sms/src'),
+    'Kavenegar\\' => array($vendorDir . '/kavenegar/php/src'),
     'IPPanel\\' => array($vendorDir . '/ippanel/php-rest-sdk/src/IPPanel'),
 );

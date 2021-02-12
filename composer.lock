@@ -4,8 +4,55 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "97ed6ac559a1ead52fe4313c8db757ba",
+    "content-hash": "fd7cecb70b15769f11f41471fe97727e",
     "packages": [
+        {
+            "name": "iamirnet/sms",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/iamirnet/sms.git",
+                "reference": "9755e10b08962f9400d04843aff21f8ed001f8d4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/iamirnet/sms/zipball/9755e10b08962f9400d04843aff21f8ed001f8d4",
+                "reference": "9755e10b08962f9400d04843aff21f8ed001f8d4",
+                "shasum": ""
+            },
+            "require-dev": {
+                "ippanel/php-rest-sdk": "^1.0",
+                "kavenegar/php": "^1.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "iAmirNet\\SMS\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "iamirnet",
+                    "email": "me@iamir.net",
+                    "homepage": "https://iamir.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "SMS PHP",
+            "homepage": "https://php.iamir.net/packages/sms",
+            "keywords": [
+                "gateway",
+                "message",
+                "php",
+                "send sms",
+                "sms"
+            ],
+            "time": "2021-02-12T20:02:13+00:00"
+        },
         {
             "name": "ippanel/php-rest-sdk",
             "version": "v1.0.1",
@@ -46,6 +93,48 @@
             "description": "IPPanel REST API client",
             "homepage": "https://github.com/ippanel/php-rest-sdk",
             "time": "2020-02-18T14:41:21+00:00"
+        },
+        {
+            "name": "kavenegar/php",
+            "version": "v1.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kavenegar/kavenegar-php.git",
+                "reference": "884561b8d8c91b01f7db25284c2be9923c809412"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kavenegar/kavenegar-php/zipball/884561b8d8c91b01f7db25284c2be9923c809412",
+                "reference": "884561b8d8c91b01f7db25284c2be9923c809412",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Kavenegar\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kavenegar API Team",
+                    "email": "support@kavenegar.com"
+                }
+            ],
+            "description": "A PHP wrapper for Kavenegar's API",
+            "homepage": "http://github.com/Kavenegar/kavenegar-php",
+            "keywords": [
+                "api",
+                "kavenegar",
+                "sms"
+            ],
+            "time": "2019-02-26T12:49:19+00:00"
         }
     ],
     "packages-dev": [],

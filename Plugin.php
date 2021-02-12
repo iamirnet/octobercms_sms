@@ -28,15 +28,16 @@ class Plugin extends PluginBase
         $this->extendModels();
         $this->extendControllers();
         (new \iAmirNet\SMS\Updates\UserAddVerifyMobileField())->up();
-        \App::after(function ($app) {
-            $user =  \Auth::getUser();
-            if ($user && (!$user->mobile || $user->mobile != $user->mobile_verified_num)) {
-                if (!ends_with(\Request::url(), ['/mobile', '/login'])){
-                    header("Location: /mobile");
-                    die();
+        if (\iAmirNet\SMS\Classes\Sender::get('verify'))
+            \App::after(function ($app) {
+                $user =  \Auth::getUser();
+                if ($user && (!$user->mobile || $user->mobile != $user->mobile_verified_num)) {
+                    if (!ends_with(\Request::url(), ['/mobile', '/login'])){
+                        header("Location: /mobile");
+                        die();
+                    }
                 }
-            }
-        });
+            });
     }
 
     public function register()
@@ -57,15 +58,24 @@ class Plugin extends PluginBase
     public function registerSettings()
     {
         return [
+            'gateway_settings' => [
+                'label'       => 'iamirnet.sms::lang.gateway.title',
+                'description' => 'iamirnet.sms::lang.gateway.description',
+                'category'    => 'iamirnet.minimall::lang.settings.sms.title',
+                'icon'        => 'icon-cog',
+                'class'       => \iAmirNet\SMS\Models\SMSGatewaySettings::class,
+                'order'       => 800,
+                'permissions' => ['iamirnet.sms.access_sms']
+            ],
             'settings' => [
                 'label'       => 'iamirnet.sms::lang.sms.title',
                 'description' => 'iamirnet.sms::lang.sms.description',
                 'category'    => 'iamirnet.minimall::lang.settings.sms.title',
-                'icon'        => 'icon-credit-card',
+                'icon'        => 'icon-cog',
                 'class'       => \iAmirNet\SMS\Models\SMSSettings::class,
                 'order'       => 800,
                 'permissions' => ['iamirnet.sms.access_sms']
-            ]
+            ],
         ];
     }
 

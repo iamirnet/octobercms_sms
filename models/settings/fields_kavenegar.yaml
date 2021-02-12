@@ -1,0 +1,16 @@
+fields:
+  kavenegar_api_token:
+    label: iamirnet.sms::lang.gateway.items.global.token
+    span: auto
+    type: text
+    tab: iamirnet.sms::lang.sms.gateway
+  kavenegar_from_number:
+    label: iamirnet.sms::lang.gateway.items.global.from_number
+    span: auto
+    type: text
+    tab: iamirnet.sms::lang.sms.gateway
+  kavenegar_footer:
+    label: iamirnet.sms::lang.gateway.items.global.footer
+    span: auto
+    type: text
+    tab: iamirnet.sms::lang.sms.gateway

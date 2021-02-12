@@ -1,0 +1,12 @@
+fields:
+  base:
+    label: iamirnet.sms::lang.gateway.description
+    type: section
+  sms_gateway:
+    label: iamirnet.sms::lang.gateway.title
+    span: auto
+    type: dropdown
+    tab: iamirnet.sms::lang.gateway.title
+    options:
+      cuphost: iamirnet.sms::lang.gateway.items.cuphost.title
+      kavenegar: iamirnet.sms::lang.gateway.items.kavenegar.title
