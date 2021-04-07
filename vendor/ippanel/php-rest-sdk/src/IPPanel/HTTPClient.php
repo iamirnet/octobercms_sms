@@ -80,7 +80,7 @@ class HTTPClient
      * @param string $url request url
      * @param mixed $data request data
      * @param array $params query parameters
-     * @param array $headers http headers 
+     * @param array $headers http headers
      * @return Models\Response parsed response
      * @throws Errors\HttpException
      * @throws Errors\Error
@@ -120,7 +120,6 @@ class HTTPClient
         }
 
         $response = curl_exec($curl);
-
         if ($response === false) {
             throw new Errors\HttpException(curl_error($curl), curl_errno($curl));
         }
@@ -130,7 +129,7 @@ class HTTPClient
 
         curl_close($curl);
 
-        // http status code is parsable or not 
+        // http status code is parsable or not
         if (!in_array($status, $this->_supportedStatusCodes)) {
             throw new Errors\HttpException("unexpected http error occurred", $status);
         }
@@ -152,7 +151,7 @@ class HTTPClient
     /**
      * Make http GET request
      * @param string $url request url
-     * @param array|Null $params query parameters 
+     * @param array|Null $params query parameters
      * @param array|Null $headers http headers
      * @return Models\Response parsed response
      * @throws Errors\HttpException

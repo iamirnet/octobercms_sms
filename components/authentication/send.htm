@@ -1,0 +1,13 @@
+<div class="col-md-8 m-auto mb-4">
+    <p class="lead">
+        {{ 'iamirnet.sms::lang.components.auth.send' | trans }}
+    </p>
+    <form
+          data-request="{{ __SELF__ }}::onSendCode"
+          data-request-update="'{{ __SELF__ }}::check': '#partialUserVerifyMobileForm'">
+        <div class="form-group">
+             <input style="text-align-last: center;" name="receiver" type="text" class="form-control" id="userVerifyMobile" placeholder="{{ 'iamirnet.sms::lang.components.auth.fields.receiver' | trans }}">
+        </div>
+        <center><button type="submit" class="btn btn-primary">{{ 'iamirnet.sms::lang.components.auth.btn.send' | trans }}</button></center>
+    </form>
+</div>

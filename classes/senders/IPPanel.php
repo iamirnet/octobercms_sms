@@ -13,7 +13,7 @@ class IPPanel extends \iAmirNet\SMS\Gateways\IPPanel
     public function __construct(array $options = [])
     {
         parent::__construct([
-            'key' => SMSGatewaySettings::get('cuphost_api_token'),
+            'token' => SMSGatewaySettings::get('cuphost_api_token'),
             'sender' => SMSGatewaySettings::get('cuphost_from_number'),
             'sender_pattern' => SMSGatewaySettings::get('cuphost_from_number_pattern'),
             'footer' => SMSGatewaySettings::get('cuphost_footer'),

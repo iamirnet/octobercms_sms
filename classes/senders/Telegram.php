@@ -14,7 +14,7 @@ class Telegram extends \iAmirNet\SMS\Gateways\Telegram
     {
         $this->footer = (string) SMSGatewaySettings::get('telegram_footer');
         parent::__construct([
-            'key' => SMSGatewaySettings::get('telegram_api_token'),
+            'token' => SMSGatewaySettings::get('telegram_api_token'),
             'sender' => SMSGatewaySettings::get('telegram_from_number'),
         ]);
     }

@@ -22,10 +22,10 @@ class Notifications
     }
 
     public static function VerifyCode($mobile, $code) {
-        return Sender::send('verify', ['code' => $code], $mobile, true);
+        return Sender::send('verify', ['code' => (string) $code, 'name' => (string) $mobile], $mobile, true);
     }
 
     public static function Welcome($mobile, $name = '') {
-        return Sender::send('verify', ['name' => $name], $mobile, true);
+        return Sender::send('welcome', ['name' => $name], $mobile, true);
     }
 }

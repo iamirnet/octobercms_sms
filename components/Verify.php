@@ -28,7 +28,6 @@ class Verify extends ComponentBase
 
     public function onRun()
     {
-
         if (!$user = Auth::getUser()) {
             return redirect()->to('/login');
         }
@@ -66,7 +65,6 @@ class Verify extends ComponentBase
     {
         $rules = [
             'code'     => 'required',
-
         ];
         $validation = Validator::make(post(), $rules);
         if ($validation->fails())

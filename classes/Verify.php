@@ -39,15 +39,15 @@ class Verify
     {
         if ($mobile) {
             if ($mobile == $this->v_mobile)
-                $error = 'شماره موبایل متفاوت باید وارد کنید.';
+                $error = trans('iamirnet.sms::lang.messages.code.different');
             else if (User::where('mobile_verified_num', $mobile)->first())
-                $error = 'شماره قبلا برای کاربر دیگر ثبت و تایید شده است.';
+                $error = trans('iamirnet.sms::lang.messages.code.has_verified');
             elseif ($this->verified && (int) $this->verified + 3600 > time()) {
-                $error = 'بین هر تغییر شماره موبایل و تایید آن حداقل یک ساعت صبر کنید و شکیبا باشید.';
+                $error = trans('iamirnet.sms::lang.messages.code.verified_1h');
             } elseif ($this->v_num && $this->v_num < 3 && ((int) $this->verify + 60 > time())) {
-                $error = 'بین هر ارسال حداقل یک دقیقه صبر کنید و شکیبا باشید.';
+                $error = trans('iamirnet.sms::lang.messages.code.sent_1m');
             } elseif ($this->v_num && $this->v_num < 3 && ((int) $this->verify + 600 > time())) {
-                $error = 'شما سه بار کد را فرستادید و تا ده دقیقه دیگر باید صبر کنید.';
+                $error = trans('iamirnet.sms::lang.messages.code.sent_3c_10m');
             } else {
                 $code = rand(123456, 655357);
                 $send = $this->sendCode($mobile, $code);
@@ -62,12 +62,12 @@ class Verify
                         "mobile_verify_code" => $this->code,
                         "mobile_verify_count" => $this->v_num,
                     ]);
-                    $success = 'کد با موفقیت ارسال شد.';
+                    $success = trans('iamirnet.sms::lang.messages.code.sent');
                 } else
-                    $error = 'کد ارسال نشد.';
+                    $error = trans('iamirnet.sms::lang.messages.code.unsent');
             }
         }else
-            $error = 'شماره موبایل وارد نشده است.';
+            $error = trans('iamirnet.sms::lang.messages.mobile.not_entered');
         return array('status' => isset($success), 'msg' => isset($success) ? $success : $error);
     }
 
@@ -81,7 +81,7 @@ class Verify
                     "mobile_verify_code" => null,
                     "mobile_verify_count" => 0,
                 ]);
-                $error = 'متاسفانه زمان کد منقضی شده، لطفا مجدد کد را به همراه خود ارسال کنید.';
+                $error = trans('iamirnet.sms::lang.messages.code.expired');
             } else {
                 $this->user->update([
                     "mobile_verify_time" => null,
@@ -90,10 +90,10 @@ class Verify
                     "mobile_verify_code" => null,
                     "mobile_verify_count" => null,
                 ]);
-                $success = 'شماره موبایل شما تایید شد.';
+                $error = trans('iamirnet.sms::lang.messages.mobile.verified');
             }
         } else
-            $error = 'کد تایید وارد شده اشتباه است.';
+            $error = trans('iamirnet.sms::lang.messages.code.uncorrected');
         return array('status' => isset($success) ? true : false, 'msg' => isset($success) ? $success : $error);
     }
 

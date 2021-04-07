@@ -14,7 +14,7 @@ class Sender
     {
         if (SMSSettings::get("sms_option_$method") == 'inactive')
             if ($error) {
-                throw new \InvalidArgumentException(trans('iamirnet.sms::lang.errors.inactive'));
+                throw new \InvalidArgumentException(trans('iamirnet.sms::lang.messages.inactive'));
             } else
                 return false;
         switch (SMSGatewaySettings::get("sms_gateway")) {
@@ -26,7 +26,7 @@ class Sender
                 break;
             default:
                 $class = [
-                    'class' => Senders\IPPanel::class,
+                    'class' => new Senders\IPPanel(),
                     'pattern' => SMSGatewaySettings::get("cuphost_pattern_$method")
                 ];
                 break;
@@ -36,10 +36,11 @@ class Sender
 
     public static function send($method, $data, $user, $is_mobile = false) {
         if ($sender = self::get($method)){
-            $user = $is_mobile ? : (is_int($user) ? User::findOrFail($user) : $user);
+            $user = $is_mobile ? $user : (is_int($user) ? User::findOrFail($user) : $user);
             $pattern = $sender->pattern ? : $data;
             $message = is_array($pattern) ? trans("iamirnet.sms::lang.patterns.$method") : $data;
-            $sender->class->sendByPattern($pattern, $is_mobile ? $user : $user->mobile, $message);
+            $result = $sender->class->sendByPattern($pattern, $is_mobile ? $user : $user->mobile, $message);
+            return $result['status'];
         }
         return false;
     }

@@ -9,7 +9,6 @@
           data-request="{{ __SELF__ }}::onSendCode"
           data-request-update="'{{ __SELF__ }}::check': '#partialUserVerifyMobileForm'">
         <div class="form-group">
-             <label for="userVerifyMobile">{{ 'iamirnet.sms::lang.sms.mobile' | trans }}</label>
              <input style="text-align-last: center;" name="mobile" type="text" class="form-control" id="userVerifyMobile" placeholder="{{ 'iamirnet.sms::lang.sms.mobile_comment' | trans }}" value="{{ __SELF__.user.mobile }}">
         </div>
         <center><button type="submit" class="btn custom-primary-btn">{{ 'iamirnet.sms::lang.components.verify.btn.send' | trans }}</button></center>

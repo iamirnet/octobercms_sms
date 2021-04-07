@@ -4,6 +4,7 @@ use Azarinweb\User\Models\User;
 use System\Classes\PluginBase;
 
 require_once "updates/user_add_verify_mobile_field.php";
+require_once "updates/create_i_amir_sms_bridges.php";
 
 class Plugin extends PluginBase
 {
@@ -27,8 +28,9 @@ class Plugin extends PluginBase
     {
         $this->extendModels();
         $this->extendControllers();
-        (new \iAmirNet\SMS\Updates\UserAddVerifyMobileField())->up();
-        if (\iAmirNet\SMS\Classes\Sender::get('verify'))
+        (new \iAmirNet\SMS\Updates\CreateIAmirSmsBridges())->up();
+        /*(new \iAmirNet\SMS\Updates\UserAddVerifyMobileField())->up();*/
+        /*if (\iAmirNet\SMS\Classes\Sender::get('verify'))
             \App::after(function ($app) {
                 $user =  \Auth::getUser();
                 if ($user && (!$user->mobile || $user->mobile != $user->mobile_verified_num)) {
@@ -37,7 +39,7 @@ class Plugin extends PluginBase
                         die();
                     }
                 }
-            });
+            });*/
     }
 
     public function register()
@@ -83,6 +85,7 @@ class Plugin extends PluginBase
     {
         return [
             \iAmirNet\SMS\Components\Verify::class  => 'verifyMobile',
+            \iAmirNet\SMS\Components\Authentication::class  => 'iAuthentication',
         ];
     }
 

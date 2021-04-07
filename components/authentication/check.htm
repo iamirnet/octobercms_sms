@@ -1,0 +1,17 @@
+<div class="col-md-8 m-auto mb-4">
+    <p class="lead">
+        {{ 'iamirnet.sms::lang.components.auth.check' | trans }}
+    </p>
+    <form
+    data-request="{{ __SELF__ }}::onVerify"
+    data-request-update="'{{ __SELF__ }}::complete': '#partialUserVerifyMobileForm'">
+        <div class="form-group">
+             <input style="text-align-last: center;" name="code" type="text" class="form-control" id="verifyCode" placeholder="{{ 'iamirnet.sms::lang.components.auth.fields.code' | trans }}" value="{{ __SELF__.code }}">
+        </div>
+        <input name="receiver" type="hidden" class="form-control" value="{{ __SELF__.result.receiver }}">
+        <input name="hash" type="hidden" class="form-control" value="{{ __SELF__.result.hash }}">
+        <center><button type="submit" class="btn btn-primary">{{ 'iamirnet.sms::lang.components.auth.btn.check' | trans }}</button>
+        <button type="button" data-request="{{ __SELF__ }}::onSendCode"
+                data-request-update="'{{ __SELF__ }}::check': '#partialUserVerifyMobileForm'"  class="btn btn-warning">{{ 'iamirnet.sms::lang.components.auth.btn.again' | trans }}</button></center>
+    </form>
+</div>

@@ -11,7 +11,7 @@ class Kavenegar extends \iAmirNet\SMS\Gateways\Kavenegar
     public function __construct(array $options = [])
     {
         parent::__construct([
-            'key' => SMSGatewaySettings::get('kavenegar_api_token'),
+            'token' => SMSGatewaySettings::get('kavenegar_api_token'),
             'sender' => SMSGatewaySettings::get('kavenegar_from_number'),
             'footer' => SMSGatewaySettings::get('kavenegar_footer'),
         ]);
